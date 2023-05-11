@@ -5,12 +5,16 @@
 #
 
 # Inherit common board flags
--include device/samsung/sm6150-common/BoardConfigCommon.mk
+include device/samsung/sm6150-common/BoardConfigCommon.mk
+
+# Get non-open-source specific aspects
+include vendor/samsung/a71/odessa-vendor.mk
 
 DEVICE_PATH := device/samsung/a71
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
+BUILD_BROKEN_DUP_RULES := true
 
 # FOD
 TARGET_FOD_ALWAYS_ON_HBM := true
@@ -75,3 +79,10 @@ BOARD_PLAT_PRIVATE_SEPOLICY_DIR += \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
+
+# Assert
+TARGET_OTA_ASSERT_DEVICE := a71
+
+# Init
+PRODUCT_PACKAGES += \
+    fstab.qcom

@@ -16,4 +16,5 @@
     <!-- Color of the FOD view -->
     <!-- we're going to use the circle drawn from kernel, so disable framework green circle -->
     <color name="config_fodColor">#00000000</color>
+    <integer name="config_udfpsHbmType">0</integer>
 </resources>
